@@ -25,14 +25,20 @@ source ./venv/bin/activate
 
 ### Crawler
 
-Execute the UCL crawler, fetching all courses and saving them in the output file in JSON format.
-
-Arguments:
-
-- *output* : destination where crawler results are saved.  
+Testing: 
 
 ```bash
-python crawl/ucl.py --output data/ucl_test.json
+make test-ucl
+```
+
+Execute the UCL crawler, fetching all courses and saving them in the output file in JSON format.
+
+Arguments: arguments are set up in the Makefile
+- *year*: year of the analyzed courses (*2020 means the academic year 2020-2021*). 
+- *output file*: output file path, directly linked to the year. (*data/ucl_2020.json*)
+
+```bash
+make generate-ucl
 ```
 
 ###  Word count
@@ -45,7 +51,7 @@ Arguments:
 - *field*: name of the field to use as input for building the word count.
 
 ````bash
-python process/wordcount.py --input data/ucl_courses.json --output tag_cloud.csv --field content
+python score/wordcount.py --input data/ucl_courses.json --output tag_cloud.csv --field content
 ````
 
 ### Scoring
@@ -59,7 +65,7 @@ Arguments:
 - *key*: name of field to use as reference key
 
 ```bash
-python process/score.py --input data/ucl_courses.json --output test.csv --key shortname --field content
+python score/score.py --input data/ucl_courses.json --output test.csv --key shortname --field content
 ```
 
 ## Using the Scrapy shell

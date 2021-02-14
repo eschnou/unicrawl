@@ -1,0 +1,17 @@
+scrapy
+argparse
+w3lib
+numpy==1.19.3
+nltk
+spacy
+sklearn
+unidecode
+pyvirtualdisplay
+progressbar
+xvfbwrapper
+selenium
+PyPDF2
+pandas
+bs4
+langdetect
+tqdm
